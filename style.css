@@ -75,6 +75,7 @@ ul li{
     height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
+    user-select: none;
 }
 
 img{
@@ -82,6 +83,7 @@ img{
     width: 100%;
     height: 100%;
     transform: translate(0%, 0%);
+    user-select: none;
 }
 .moon{
     width: 60%;
@@ -107,6 +109,12 @@ img{
 }
 .land{
     transform: scaleX(1.5) scaleY(1.5) translate(0%, -10%);
+}
+.layer{
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    height:100%;
 }
 
 
