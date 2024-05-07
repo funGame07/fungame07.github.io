@@ -1,8 +1,10 @@
 const rightLand = document.querySelector('.right-land')
 const leftLand = document.querySelector('.left-land')
-const container = document.querySelector('.img-container-2')
+const container = document.querySelector('.img-container')
+const imgContainer = document.querySelector('.img-container-2')
 const parallax = document.querySelectorAll('.parallax')
 const moon = document.querySelector('.moon')
+const lands = document.querySelectorAll('.land')
 
 window.setTimeout(() =>{
     rightLand.classList.remove('right-land')
@@ -14,19 +16,19 @@ window.setTimeout(() =>{
 }, 4000)
 
 function scroll(){
-    rightLand.className = ""
-    leftLand.className = ""
+    rightLand.className = "land"
+    leftLand.className = "land"
 
     const y = container.scrollTop;
     const move = -1 *y*0.5
-    const transX = 33- move*1.7
     const transY = -20 - move*0.7
     
     moon.style.transform = `translate(33%,${transY >= 30 ? 30 : transY}%)`
-    // moon.style.transform = `translate(${transX >=150 ? 150 :transX}%, ${transY >= 100 ? 100 : transY}%)`
 
     rightLand.style.right = `${move > -50 ? -50: move}px`
     leftLand.style.left = `${move > -50 ? -50: move}px`
+    lands.forEach(land => land.style.transform = `translateY(-15%) scaleX(1.5) scaleY(1.5)`)
+    
 }
 
 container.addEventListener('scroll', scroll)
@@ -45,4 +47,4 @@ function move(e){
     } )
 }
 
-container.addEventListener('mousemove', (e) => move(e))
+imgContainer.addEventListener('mousemove', (e) => move(e))
